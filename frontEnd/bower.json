@@ -1,0 +1,22 @@
+{
+  "name": "twitterStuff",
+  "main": "index.js",
+  "version": "0.0.1",
+  "authors": [
+    "Luke Meyers"
+  ],
+  "description": "twitter stuff + promises + bacon.js + bootstrap",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bacon": "~0.7.77",
+    "jquery": "~2.1.4",
+    "mustache.js": "mustache#~2.2.0"
+  }
+}

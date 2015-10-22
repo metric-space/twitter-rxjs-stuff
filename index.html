@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>	
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"></link>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/mustache.js/mustache.min.js"></script>
+	</head>
+	<body>
+		<script id="template" type="text/template">
+			{{#data}}
+				<div class="panel panel-body">
+					<div class="panel-body">
+						<div class=row">
+							<div class="col-lg-4">
+								<img src={{pic}} />
+								<p>{{username}}</p>
+							</div>
+							<div class="col-lg-8">
+								<p>{{text}}</p>
+							</div>
+						</div>
+					</div>	
+				</div>
+			{{/data}}
+		</script>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12" style="height:20pt;"></div>
+				<div class="col-lg-offset-2 col-lg-8">
+					<form>
+						<div class="form-group">
+							<label>Twitter Search</label>
+							<input type="text" class="form-control" id="search" placeholder="#hashtag">
+						</div>
+					</form>
+					<div id="display">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="bower_components/bacon/dist/Bacon.min.js"></script>
+		<script src="baconBurger.js"></script>
+	</body>
+</head>

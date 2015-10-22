@@ -1,0 +1,5 @@
+cert.pem
+key.pem
+frontEnd/bower_components/*
+*.swp
+node_modules/*
