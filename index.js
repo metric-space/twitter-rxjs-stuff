@@ -14,8 +14,6 @@ https.createServer({
 	cert:fs.readFileSync('cert.pem')
 },app).listen(config.server.port);
 
-app.set('json spaces', 40);
-
 app.use(serveStatic('frontEnd/'));
 
 app.get('/',function(req,res){
@@ -29,7 +27,11 @@ app.get('/:keyword',function(req,res){
 	console.log(req.params.keyword)
 	twitter.search(req.params.keyword).then(function(a){
 		res.json(a);	
+	}).error(function(){
+		res.status(403).end();
 	})	
 })
+
+
 
 	

@@ -2,7 +2,8 @@ $(document).ready(function(){
 
 	// Template stuff first
 
-	var template = $('#template').html();
+	var template      = $('#template').html();
+	var errorTemplate = $('#errorTemplate').html();
 
 
 	function twitterSearch(hashTag){
@@ -15,16 +16,22 @@ $(document).ready(function(){
 			.asEventStream('keydown')
 			.debounce(300)
 			.map(function(event){
-				return event.target.value
+				return encodeURIComponent(event.target.value);
 			})
 			.skipDuplicates();
 
-	var searchResults = text.flatMapLatest(twitterSearch);
+	var searchResults = text.flatMapLatest(twitterSearch).mapError('Search Fail');
 
 	searchResults.onValue(function(results){
-		var data = {data:results};
-		console.log(data);
-		var renderedData = Mustache.to_html(template,data);
-		$('#display').html(renderedData);		
+
+		if(results == 'Search Fail'){
+			var renderedData = Mustache.to_html(errorTemplate,{});
+			$('#display').html(renderedData);
+		}else{
+			var data = {data:results};
+			console.log(data);
+			var renderedData = Mustache.to_html(template,data);
+			$('#display').html(renderedData);		
+		}
 	})	
 });
