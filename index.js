@@ -14,6 +14,8 @@ https.createServer({
 	cert:fs.readFileSync('cert.pem')
 },app).listen(config.server.port);
 
+console.log("listening on port:"+ config.server.port);
+
 app.use(serveStatic('frontEnd/'));
 
 app.get('/',function(req,res){

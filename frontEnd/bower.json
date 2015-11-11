@@ -15,8 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "bacon": "~0.7.77",
     "jquery": "~2.1.4",
-    "mustache.js": "mustache#~2.2.0"
+    "mustache.js": "mustache#~2.2.0",
+    "rxjs": "~4.0.6"
   }
 }
